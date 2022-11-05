@@ -1,0 +1,7 @@
+package ${obj.serviceImport.javaPathParent};
+import ${obj.service.javaPath};
+import org.springframework.stereotype.Service;
+@Service
+public class ${obj.serviceImport.nameUppeCase} implements ${obj.service.nameUppeCase}{
+
+}

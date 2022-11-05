@@ -1,0 +1,5 @@
+package ${obj.control.javaPathParent};
+@RestController
+@CrossOrigin
+public class ${obj.control.nameUppeCase}{
+}

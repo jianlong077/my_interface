@@ -1,0 +1,31 @@
+package ${obj.entity.javaPathParent};
+import java.io.Serializable;
+#foreach($field in ${obj.entity.impprotTypes})
+import ${field};
+#end
+public class  ${obj.entity.nameUppeCase} implements Serializable{
+#foreach($field in ${obj.entity.dbColumDetails})
+private ${field.javaType}  ${field.javaName};
+#end
+
+#foreach($field in ${obj.entity.dbColumDetails})
+public ${field.javaType} get${field.javaSetOrGetName}() {
+        return this.${field.javaName};
+        }
+public void set${field.javaSetOrGetName}(${field.javaType} ${field.javaName}) {
+        this.${field.javaName} = ${field.javaName};
+        }
+#end
+@Override
+public String toString() {
+        return "${obj.entity.nameUppeCase}{" +
+    #foreach($field in ${obj.entity.dbColumDetails})
+        #if($!{foreach.index}==0)
+                "${field.javaName}=" + ${field.javaName} +
+        #else
+                ", ${field.javaName}=" + ${field.javaName} +
+        #end
+    #end
+        "}";
+        }
+        }

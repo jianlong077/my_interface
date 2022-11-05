@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haichao.erp.sys.mapper.MenuMapper" >
+    <resultMap id="BaseResultMapVO" type="com.haichao.erp.sys.entity.vo.MenuVO" extends="BaseResultMap">
+        <!-- <association property="employee" column="code" select="com.my.erp.bd.mapper.EmployeeMapper.findByAccountCode">
+            </association>
+            <collection property="menus" column="code" select="com.my.erp.sys.mapper.MenuMapper.findListByAccountCOde">
+            </collection>
+        -->
+    </resultMap>
+    <!-- 根据code查询 -->
+    <select id="findById" resultMap="BaseResultMapVO"  parameterType="java.lang.String" >
+            select a.* from sys_menu a where a.cguid = #{cguid,jdbcType=VARCHAR};
+    </select>
+    <!-- 根据条件查询List -->
+    <select id="findList" resultMap="BaseResultMapVO"  parameterType="java.util.Map">
+            select a.* from sys_menu a
+    <where>
+    <if test="code != null" >
+            and code=#{code}
+    </if>
+    <if test="name != null" >
+            and name=#{name}
+    </if>
+    <if test="cguidParent != null" >
+            and cguid_parent=#{cguidParent}
+    </if>
+    <if test="action != null" >
+            and action=#{action}
+    </if>
+    <if test="level != null" >
+            and level=#{level}
+    </if>
+    <if test="type != null" >
+            and type=#{type}
+    </if>
+    <if test="auditStatus != null" >
+            and audit_status=#{auditStatus}
+    </if>
+    <if test="status != null" >
+            and status=#{status}
+    </if>
+    <if test="outCode != null" >
+            and out_code=#{outCode}
+    </if>
+    <if test="cguid != null" >
+            and cguid=#{cguid}
+    </if>
+    <if test="lastUpdateTime != null" >
+            and last_update_time=#{lastUpdateTime}
+    </if>
+    </where>
+    </select>
+    <!-- 根据code删除 -->
+    <delete id="deleteById" parameterType="java.lang.String" >
+            delete from  sys_menu where  cguid= #{cguid,jdbcType=VARCHAR};
+    </delete>
+</mapper>

@@ -1,0 +1,21 @@
+package ${obj.entityVO.javaPathParent};
+import ${obj.entity.javaPath};
+import org.springframework.beans.BeanUtils;
+
+import java.io.Serializable;
+
+/**
+ * 更新时间 2020-05-08 16:51:11
+ * 表 t_oms_shop_split
+*/
+public class ${obj.entityVO.nameUppeCase} extends ${obj.entity.nameUppeCase} implements Serializable{
+    public ${obj.entity.nameUppeCase} copy(){
+        ${obj.entity.nameUppeCase}  toObj=new ${obj.entity.nameUppeCase}();
+            BeanUtils.copyProperties( this,toObj);
+        return toObj;
+    }
+    public ${obj.entityVO.nameUppeCase}(${obj.entity.nameUppeCase}  fromObj) {
+        BeanUtils.copyProperties( fromObj,this);
+    }
+    public ${obj.entityVO.nameUppeCase}(){}
+}

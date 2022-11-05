@@ -1,0 +1,3 @@
+package ${obj.service.javaPathParent};
+public interface  ${obj.service.nameUppeCase}{
+}

@@ -1,0 +1,14 @@
+package ${obj.mapper.javaPathParent};
+import ${obj.entityVO.javaPath};
+import org.apache.ibatis.annotations.Mapper;
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author baomidou
+ * @since 2022-02-18
+ */
+@Mapper
+public interface ${obj.mapper.nameUppeCase}{
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="${obj.mapper.javaPath}" >
+    <resultMap id="BaseResultMapVO" type="${obj.entityVO.javaPath}" extends="BaseResultMap">
+        <!-- <association property="employee" column="code" select="com.my.erp.bd.mapper.EmployeeMapper.findByAccountCode">
+            </association>
+            <collection property="menus" column="code" select="com.my.erp.sys.mapper.MenuMapper.findListByAccountCOde">
+            </collection>
+        -->
+    </resultMap>
+    <!-- 根据code查询 -->
+    <select id="findById" resultMap="BaseResultMapVO"  parameterType="java.lang.String" >
+            select a.* from ${obj.dbTableName} a where a.cguid = #{cguid,jdbcType=VARCHAR};
+    </select>
+    <!-- 根据条件查询List -->
+    <select id="findList" resultMap="BaseResultMapVO"  parameterType="java.util.Map">
+            select a.* from ${obj.dbTableName} a
+    <where>
+    #foreach($field in ${obj.entity.dbColumDetails})
+    <if test="${field.javaName} != null" >
+            and ${field.columName}=#{${field.javaName}}
+    </if>
+    #end
+    </where>
+    </select>
+    <!-- 根据code删除 -->
+    <delete id="deleteById" parameterType="java.lang.String" >
+            delete from  ${obj.dbTableName} where  cguid= #{cguid,jdbcType=VARCHAR};
+    </delete>
+</mapper>

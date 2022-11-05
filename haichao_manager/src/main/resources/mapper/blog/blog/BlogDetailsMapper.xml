@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haichao.blog.blog.mapper.BlogDetailsMapper" >
+    <resultMap id="BaseResultMap" type="com.haichao.blog.blog.entity.vo.BlogDetailsVO" >
+        <result column="cguid" property="cguid" jdbcType="VARCHAR" />
+        <result column="class_id" property="classId" jdbcType="VARCHAR" />
+        <result column="tag_id" property="tagId" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="details" property="details" jdbcType="BLOB" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >cguid,class_id,tag_id,status,name,details,user_id</sql>
+
+    <!-- 根据cuid新增 -->
+    <insert id="add" parameterType="com.haichao.blog.blog.entity.vo.BlogDetailsVO" >
+            insert into blog_details
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+                <if test="cguid != null" >
+                    cguid,
+                </if>
+                <if test="classId != null" >
+                    class_id,
+                </if>
+                <if test="tagId != null" >
+                    tag_id,
+                </if>
+                <if test="status != null" >
+                    status,
+                </if>
+                <if test="name != null" >
+                    name,
+                </if>
+                <if test="details != null" >
+                    details,
+                </if>
+                <if test="userId != null" >
+                    user_id,
+                </if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="cguid != null" >
+                        #{cguid},
+                </if>
+                <if test="classId != null" >
+                        #{classId},
+                </if>
+                <if test="tagId != null" >
+                        #{tagId},
+                </if>
+                <if test="status != null" >
+                        #{status},
+                </if>
+                <if test="name != null" >
+                        #{name},
+                </if>
+                <if test="details != null" >
+                        #{details},
+                </if>
+                <if test="userId != null" >
+                        #{userId},
+                </if>
+            </trim>
+    </insert>
+    <!-- 根据cguid更新 -->
+    <update id="update" parameterType="com.haichao.blog.blog.entity.vo.BlogDetailsVO" >
+            update blog_details
+            <set>
+                <if test="cguid != null" >
+                    cguid=#{cguid},
+                </if>
+                <if test="classId != null" >
+                    class_id=#{classId},
+                </if>
+                <if test="tagId != null" >
+                    tag_id=#{tagId},
+                </if>
+                <if test="status != null" >
+                    status=#{status},
+                </if>
+                <if test="name != null" >
+                    name=#{name},
+                </if>
+                <if test="details != null" >
+                    details=#{details},
+                </if>
+                <if test="userId != null" >
+                    user_id=#{userId},
+                </if>
+            </set>
+            where cguid = #{cguid,jdbcType=VARCHAR};
+    </update>
+</mapper>

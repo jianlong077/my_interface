@@ -1,0 +1,4 @@
+package ${obj.domain.javaPathParent};
+@Service
+public class ${obj.domain.nameUppeCase}{
+}

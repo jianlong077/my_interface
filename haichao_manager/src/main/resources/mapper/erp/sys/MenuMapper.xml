@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haichao.erp.sys.mapper.MenuMapper" >
+    <resultMap id="BaseResultMap" type="com.haichao.erp.sys.entity.vo.MenuVO" >
+        <result column="code" property="code" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="cguid_parent" property="cguidParent" jdbcType="VARCHAR" />
+        <result column="action" property="action" jdbcType="VARCHAR" />
+        <result column="level" property="level" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="CHAR" />
+        <result column="audit_status" property="auditStatus" jdbcType="CHAR" />
+        <result column="status" property="status" jdbcType="CHAR" />
+        <result column="out_code" property="outCode" jdbcType="VARCHAR" />
+        <result column="cguid" property="cguid" jdbcType="VARCHAR" />
+        <result column="last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="Base_Column_List" >code,name,cguid_parent,action,level,type,audit_status,status,out_code,cguid,last_update_time</sql>
+
+    <!-- 根据cuid新增 -->
+    <insert id="add" parameterType="com.haichao.erp.sys.entity.vo.MenuVO" >
+            insert into sys_menu
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+                <if test="code != null" >
+                    code,
+                </if>
+                <if test="name != null" >
+                    name,
+                </if>
+                <if test="cguidParent != null" >
+                    cguid_parent,
+                </if>
+                <if test="action != null" >
+                    action,
+                </if>
+                <if test="level != null" >
+                    level,
+                </if>
+                <if test="type != null" >
+                    type,
+                </if>
+                <if test="auditStatus != null" >
+                    audit_status,
+                </if>
+                <if test="status != null" >
+                    status,
+                </if>
+                <if test="outCode != null" >
+                    out_code,
+                </if>
+                <if test="cguid != null" >
+                    cguid,
+                </if>
+                <if test="lastUpdateTime != null" >
+                    last_update_time,
+                </if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="code != null" >
+                        #{code},
+                </if>
+                <if test="name != null" >
+                        #{name},
+                </if>
+                <if test="cguidParent != null" >
+                        #{cguidParent},
+                </if>
+                <if test="action != null" >
+                        #{action},
+                </if>
+                <if test="level != null" >
+                        #{level},
+                </if>
+                <if test="type != null" >
+                        #{type},
+                </if>
+                <if test="auditStatus != null" >
+                        #{auditStatus},
+                </if>
+                <if test="status != null" >
+                        #{status},
+                </if>
+                <if test="outCode != null" >
+                        #{outCode},
+                </if>
+                <if test="cguid != null" >
+                        #{cguid},
+                </if>
+                <if test="lastUpdateTime != null" >
+                        #{lastUpdateTime},
+                </if>
+            </trim>
+    </insert>
+    <!-- 根据cguid更新 -->
+    <update id="update" parameterType="com.haichao.erp.sys.entity.vo.MenuVO" >
+            update sys_menu
+            <set>
+                <if test="code != null" >
+                    code=#{code},
+                </if>
+                <if test="name != null" >
+                    name=#{name},
+                </if>
+                <if test="cguidParent != null" >
+                    cguid_parent=#{cguidParent},
+                </if>
+                <if test="action != null" >
+                    action=#{action},
+                </if>
+                <if test="level != null" >
+                    level=#{level},
+                </if>
+                <if test="type != null" >
+                    type=#{type},
+                </if>
+                <if test="auditStatus != null" >
+                    audit_status=#{auditStatus},
+                </if>
+                <if test="status != null" >
+                    status=#{status},
+                </if>
+                <if test="outCode != null" >
+                    out_code=#{outCode},
+                </if>
+                <if test="cguid != null" >
+                    cguid=#{cguid},
+                </if>
+                <if test="lastUpdateTime != null" >
+                    last_update_time=#{lastUpdateTime},
+                </if>
+            </set>
+            where cguid = #{cguid,jdbcType=VARCHAR};
+    </update>
+</mapper>

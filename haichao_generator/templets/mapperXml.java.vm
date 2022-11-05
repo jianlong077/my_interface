@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="${obj.mapper.javaPath}" >
+    <resultMap id="BaseResultMap" type="${obj.entityVO.javaPath}" >
+        #foreach($field in ${obj.entity.dbColumDetails})
+        <result column="${field.columName}" property="${field.javaName}" jdbcType="${field.columType}" />
+        #end
+    </resultMap>
+    <sql id="Base_Column_List" >#foreach($field in ${obj.entity.dbColumDetails})#if($!{foreach.index}==0)${field.columName}#else,${field.columName}#end#end</sql>
+
+    <!-- 根据cuid新增 -->
+    <insert id="add" parameterType="${obj.entityVO.javaPath}" >
+            insert into ${obj.dbTableName}
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+            #foreach($field in ${obj.entity.dbColumDetails})
+                <if test="${field.javaName} != null" >
+                    ${field.columName},
+                </if>
+            #end
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides="," >
+            #foreach($field in ${obj.entity.dbColumDetails})
+                <if test="${field.javaName} != null" >
+                        #{${field.javaName}},
+                </if>
+            #end
+            </trim>
+    </insert>
+    <!-- 根据cguid更新 -->
+    <update id="update" parameterType="${obj.entityVO.javaPath}" >
+            update ${obj.dbTableName}
+            <set>
+            #foreach($field in ${obj.entity.dbColumDetails})
+                <if test="${field.javaName} != null" >
+                    ${field.columName}=#{${field.javaName}},
+                </if>
+            #end
+            </set>
+            where cguid = #{cguid,jdbcType=VARCHAR};
+    </update>
+</mapper>

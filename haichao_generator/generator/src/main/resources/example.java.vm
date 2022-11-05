@@ -1,0 +1,3 @@
+ ${entity}
+ ${entity.name}
+ ${entity.deail.deail}

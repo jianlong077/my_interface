@@ -1,0 +1,22 @@
+package ${obj.mapper.javaPathParent};
+import ${obj.entityVO.javaPath};
+import org.apache.ibatis.annotations.Mapper;
+import java.util.List;
+import java.util.Map;
+import org.apache.ibatis.annotations.Param;
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author baomidou
+ * @since 2022-02-18
+ */
+@Mapper
+public interface ${obj.mapper.nameUppeCase}{
+        List<${obj.entityVO.nameUppeCase}> findList(Map<String, Object> findParam) ;
+        ${obj.entityVO.nameUppeCase} findById(@Param("cguid")String cguid) ;
+        int deleteById(@Param("cguid")String cguid) ;
+        int add(${obj.entityVO.nameUppeCase} entity) ;
+        int update(${obj.entityVO.nameUppeCase} entity) ;
+}

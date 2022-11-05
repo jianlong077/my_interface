@@ -1,0 +1,31 @@
+package ${obj.domain.javaPathParent};
+import ${obj.mapper.javaPath};
+import ${obj.entityVO.javaPath};
+import com.haichao.result.BaseJsonVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Map;
+@Service
+public class ${obj.domain.nameUppeCase}{
+        @Autowired
+        private  ${obj.mapper.nameUppeCase} ${obj.mapper.nameUppeCase};
+        public List<${obj.entityVO.nameUppeCase}> findList(Map<String, Object> findParam) {
+                return ${obj.mapper.nameUppeCase}.findList(findParam);
+        }
+        public ${obj.entityVO.nameUppeCase} findById(String cguid) {
+                return ${obj.mapper.nameUppeCase}.findById(cguid);
+        }
+        public BaseJsonVo deleteById(String cguid) {
+                ${obj.mapper.nameUppeCase}.deleteById(cguid);
+                return new BaseJsonVo();
+        }
+        public BaseJsonVo add(${obj.entityVO.nameUppeCase} entity) {
+                ${obj.mapper.nameUppeCase}.add(entity);
+                return new BaseJsonVo();
+        }
+        public BaseJsonVo update(${obj.entityVO.nameUppeCase} entity) {
+                ${obj.mapper.nameUppeCase}.update(entity);
+                return new BaseJsonVo();
+        }
+}
