@@ -42,14 +42,14 @@ public class BlogDetailsControl{
         /**
          * 根据ID查询
          */
-        @PostMapping(value = "/blog/blog/blogDetails/findById")
+        @GetMapping(value = "/blog/blog/blogDetails/findById")
         public BlogDetailsVO findById(HttpServletRequest request,@RequestParam("cguid")String cguid){
                 return blogDetailsService.findById(cguid);
         }
         /**
          * 根据ID删除
          */
-        @PostMapping(value = "/blog/blog/blogDetails/deleteById")
+        @GetMapping(value = "/blog/blog/blogDetails/deleteById")
         public BaseJsonVo deleteById(HttpServletRequest request,@RequestParam("cguid")String cguid){
                 return blogDetailsService.deleteById(cguid);
          }

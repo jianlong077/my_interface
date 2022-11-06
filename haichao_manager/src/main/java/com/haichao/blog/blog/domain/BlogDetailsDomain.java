@@ -30,7 +30,7 @@ public class BlogDetailsDomain{
         @InId(id="cguid")
         public BaseJsonVo add(@Body BlogDetailsVO entity) {
                 blogDetailsMapper.add(entity);
-                return new BaseJsonVo();
+                return new BaseJsonVo(entity.getCguid());
         }
         public BaseJsonVo update(BlogDetailsVO entity) {
                 blogDetailsMapper.update(entity);
