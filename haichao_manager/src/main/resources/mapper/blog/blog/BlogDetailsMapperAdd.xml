@@ -13,7 +13,7 @@
             select a.* from blog_details a where a.cguid = #{cguid,jdbcType=VARCHAR};
     </select>
     <select id="findTopList" resultMap="BaseResultMapVO" >
-        select b.* from blog_details_top a left join blog_details b on a.cguid=b.cguid where b.status=2 order by b.llast_time DESC
+        select b.* from blog_details_top a left join blog_details b on a.cguid=b.cguid where b.status=2 order by b.last_time DESC
     </select>
     <!-- 根据条件查询List -->
     <select id="findList" resultMap="BaseResultMapVO"  parameterType="java.util.Map">

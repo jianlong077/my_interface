@@ -11,8 +11,9 @@
         <result column="user_id" property="userId" jdbcType="VARCHAR" />
         <result column="last_time" property="lastTime" jdbcType="TIMESTAMP" />
         <result column="code" property="code" jdbcType="VARCHAR" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
     </resultMap>
-    <sql id="Base_Column_List" >cguid,class_id,tag_id,status,name,details,user_id,last_time,code</sql>
+    <sql id="Base_Column_List" >cguid,class_id,tag_id,status,name,details,user_id,last_time,code,remark</sql>
 
     <!-- 根据cuid新增 -->
     <insert id="add" parameterType="com.haichao.blog.blog.entity.vo.BlogDetailsVO" >
@@ -45,6 +46,9 @@
                 <if test="code != null" >
                     code,
                 </if>
+                <if test="remark != null" >
+                    remark,
+                </if>
             </trim>
             <trim prefix="values (" suffix=")" suffixOverrides="," >
                 <if test="cguid != null" >
@@ -73,6 +77,9 @@
                 </if>
                 <if test="code != null" >
                         #{code},
+                </if>
+                <if test="remark != null" >
+                        #{remark},
                 </if>
             </trim>
     </insert>
@@ -106,6 +113,9 @@
                 </if>
                 <if test="code != null" >
                     code=#{code},
+                </if>
+                <if test="remark != null" >
+                    remark=#{remark},
                 </if>
             </set>
             where cguid = #{cguid,jdbcType=VARCHAR};
