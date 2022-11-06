@@ -93,18 +93,18 @@ public class DbToMybatisToJavaTypeName {
                break;
            case "BINARY":                              //byte[]
                mybatisType="BINARY";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            case "VARBINARY":                         //byte[]
                mybatisType="VARBINARY";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            case "LONGVARBINARY":               //byte[]
                mybatisType="LONGVARBINARY";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            case "DATE":                                 //java.util.Date
                mybatisType="DATE";
@@ -128,23 +128,23 @@ public class DbToMybatisToJavaTypeName {
                break;
            case "CLOB":                                 // Clob
                mybatisType="CLOB";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            case "LONGCLOB":                                 // Clob
                mybatisType="CLOB";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            case "BLOB":                                 //  Blob LONGBLOB
                mybatisType="BLOB";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            case "LONGBLOB":                                 //  Blob LONGBLOB
                mybatisType="BLOB";
-               javaType="byte[]";
-               javajavaPath=null;
+               javaType="String";
+               javajavaPath="java.lang.String";
                break;
            default :
                System.out.println("db_name_type£º"+ name);
