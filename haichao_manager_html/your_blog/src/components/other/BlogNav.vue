@@ -12,10 +12,10 @@
 
         <router-link to="/LogEssayList">文章列表</router-link>
       </div>
-      <div class="header-nav-box-2-1">
+<!--      <div class="header-nav-box-2-1">
 
         <router-link to="LogEssayView">详情</router-link>
-      </div>
+      </div>-->
       <div class="header-nav-box-2-1">
 
         <router-link to="/LogEssayWrite">写作</router-link>
