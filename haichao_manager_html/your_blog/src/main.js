@@ -7,7 +7,6 @@ import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as Elicons from "@element-plus/icons-vue";
 
-
 const app = createApp(App);
 for (const [key, component] of Object.entries(Elicons)) {
     app.component(key, component)
