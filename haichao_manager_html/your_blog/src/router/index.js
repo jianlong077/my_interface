@@ -23,12 +23,12 @@ const routes = [
                     component: () => import('@/components/log_view/LogEssayView.vue')
                 }]
         },{
-          path: '/LogEssayView',
+          path: '/LogEssayView/:id',
           name: '文章查看',
           component: () => import('@/components/log_view/LogEssayView.vue')
         },{
           path: '/LogEssayWrite',
-          name: '文章描写',
+          name: '文章操作',
           component: () => import('@/components/log_view/LogEssayWrite.vue')
         }]
     }, {
