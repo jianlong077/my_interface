@@ -15,6 +15,12 @@ public class BlogDetailsServiceImp implements BlogDetailsService{
         public List<BlogDetailsVO> findList(Map<String, Object> findParam) {
                 return blogDetailsDomain.findList(findParam);
         }
+
+        @Override
+        public List<BlogDetailsVO> findTopList() {
+                return blogDetailsDomain.findTopList();
+        }
+
         @Override
         public BlogDetailsVO findById(String cguid) {
                 return blogDetailsDomain.findById(cguid);
@@ -30,5 +36,15 @@ public class BlogDetailsServiceImp implements BlogDetailsService{
         @Override
         public BaseJsonVo update(BlogDetailsVO entity) {
                 return blogDetailsDomain.update(entity);
+        }
+
+        @Override
+        public BaseJsonVo audit(String id) {
+                return blogDetailsDomain.audit(id);
+        }
+
+        @Override
+        public BaseJsonVo unAudit(String id) {
+                return blogDetailsDomain.unAudit(id);
         }
 }

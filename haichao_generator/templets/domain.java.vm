@@ -9,23 +9,23 @@ import java.util.Map;
 @Service
 public class ${obj.domain.nameUppeCase}{
         @Autowired
-        private  ${obj.mapper.nameUppeCase} ${obj.mapper.nameUppeCase};
+        private  ${obj.mapper.nameUppeCase} ${obj.mapper.nameLowerCase};
         public List<${obj.entityVO.nameUppeCase}> findList(Map<String, Object> findParam) {
-                return ${obj.mapper.nameUppeCase}.findList(findParam);
+                return ${obj.mapper.nameLowerCase}.findList(findParam);
         }
         public ${obj.entityVO.nameUppeCase} findById(String cguid) {
-                return ${obj.mapper.nameUppeCase}.findById(cguid);
+                return ${obj.mapper.nameLowerCase}.findById(cguid);
         }
         public BaseJsonVo deleteById(String cguid) {
-                ${obj.mapper.nameUppeCase}.deleteById(cguid);
+                ${obj.mapper.nameLowerCase}.deleteById(cguid);
                 return new BaseJsonVo();
         }
         public BaseJsonVo add(${obj.entityVO.nameUppeCase} entity) {
-                ${obj.mapper.nameUppeCase}.add(entity);
+                ${obj.mapper.nameLowerCase}.add(entity);
                 return new BaseJsonVo();
         }
         public BaseJsonVo update(${obj.entityVO.nameUppeCase} entity) {
-                ${obj.mapper.nameUppeCase}.update(entity);
+                ${obj.mapper.nameLowerCase}.update(entity);
                 return new BaseJsonVo();
         }
 }

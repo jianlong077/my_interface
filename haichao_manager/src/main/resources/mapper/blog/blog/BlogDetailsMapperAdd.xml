@@ -12,10 +12,14 @@
     <select id="findById" resultMap="BaseResultMapVO"  parameterType="java.lang.String" >
             select a.* from blog_details a where a.cguid = #{cguid,jdbcType=VARCHAR};
     </select>
+    <select id="findTopList" resultMap="BaseResultMapVO" >
+        select b.* from blog_details_top a left join blog_details b on a.cguid=b.cguid where b.status=2 order by b.llast_time DESC
+    </select>
     <!-- 根据条件查询List -->
     <select id="findList" resultMap="BaseResultMapVO"  parameterType="java.util.Map">
             select a.* from blog_details a
     <where>
+
     <if test="cguid != null" >
             and cguid=#{cguid}
     </if>
@@ -43,4 +47,10 @@
     <delete id="deleteById" parameterType="java.lang.String" >
             delete from  blog_details where  cguid= #{cguid,jdbcType=VARCHAR};
     </delete>
+    <update id="audit"  parameterType="java.lang.String" >
+        update blog_details set status=2  where cguid = #{cguid,jdbcType=VARCHAR};
+    </update>
+    <update id="unAudit"  parameterType="java.lang.String" >
+        update blog_details set status=1  where cguid = #{cguid,jdbcType=VARCHAR};
+    </update>
 </mapper>

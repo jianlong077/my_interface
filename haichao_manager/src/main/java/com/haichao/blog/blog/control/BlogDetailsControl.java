@@ -1,5 +1,6 @@
 package com.haichao.blog.blog.control;
 
+import com.haichao.blog.blog.entity.vo.BlogDetailsTopVO;
 import com.haichao.blog.blog.service.BlogDetailsService;
 import com.haichao.blog.blog.entity.vo.BlogDetailsVO;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,11 +34,15 @@ public class BlogDetailsControl{
                 return list;
                 }
         }
+        @GetMapping(value = "/blog/blog/blogDetails/findTopList")
+        public Object findTopList(HttpServletRequest request){
+                List<BlogDetailsVO> list=blogDetailsService.findTopList();
+                return list;
+        }
         /**
          * 根据ID查询
          */
         @PostMapping(value = "/blog/blog/blogDetails/findById")
-        @Permission(nameApi = "", codeApi = "")
         public BlogDetailsVO findById(HttpServletRequest request,@RequestParam("cguid")String cguid){
                 return blogDetailsService.findById(cguid);
         }
@@ -45,7 +50,6 @@ public class BlogDetailsControl{
          * 根据ID删除
          */
         @PostMapping(value = "/blog/blog/blogDetails/deleteById")
-        @Permission(nameApi = "", codeApi = "")
         public BaseJsonVo deleteById(HttpServletRequest request,@RequestParam("cguid")String cguid){
                 return blogDetailsService.deleteById(cguid);
          }
@@ -53,7 +57,6 @@ public class BlogDetailsControl{
          * 新增
          */
         @PostMapping(value = "/blog/blog/blogDetails/add")
-        @Permission(nameApi = "", codeApi = "")
         public BaseJsonVo add(HttpServletRequest request,@RequestBody BlogDetailsVO entity){
                 return blogDetailsService.add(entity);
         }
@@ -62,8 +65,16 @@ public class BlogDetailsControl{
          *  更新
          */
         @PostMapping(value = "/blog/blog/blogDetails/update")
-        @Permission(nameApi = "", codeApi = "")
         public BaseJsonVo update(HttpServletRequest request,@RequestBody BlogDetailsVO entity){
+                entity.setStatus(1);
                 return blogDetailsService.add(entity);
+        }
+        @GetMapping(value = "/blog/blog/blogDetails/audit")
+        public BaseJsonVo audit(HttpServletRequest request,@RequestParam("id") String  id){
+                return blogDetailsService.audit(id);
+        }
+        @GetMapping(value = "/blog/blog/blogDetails/unAudit")
+        public BaseJsonVo unAudit(HttpServletRequest request,@RequestParam("id") String  id){
+                return blogDetailsService.unAudit(id);
         }
 }
