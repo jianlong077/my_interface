@@ -9,10 +9,11 @@ private String  classId;
 private String  tagId;
 private Integer  status;
 private String  name;
-private byte[]  details;
+private String  details;
 private String  userId;
 private Date  lastTime;
 private String  code;
+private String  remark;
 
 public String getCguid() {
         return this.cguid;
@@ -44,10 +45,10 @@ public String getName() {
 public void setName(String name) {
         this.name = name;
         }
-public byte[] getDetails() {
+public String getDetails() {
         return this.details;
         }
-public void setDetails(byte[] details) {
+public void setDetails(String details) {
         this.details = details;
         }
 public String getUserId() {
@@ -68,6 +69,12 @@ public String getCode() {
 public void setCode(String code) {
         this.code = code;
         }
+public String getRemark() {
+        return this.remark;
+        }
+public void setRemark(String remark) {
+        this.remark = remark;
+        }
 @Override
 public String toString() {
         return "BlogDetails{" +
@@ -80,6 +87,7 @@ public String toString() {
                 ", userId=" + userId +
                 ", lastTime=" + lastTime +
                 ", code=" + code +
+                ", remark=" + remark +
         "}";
         }
         }
